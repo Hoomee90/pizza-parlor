@@ -64,8 +64,17 @@ Expected Output: 16.75
 
 Describe: .addMysteryToppings()
 
-Test: "It should return an array" 
+Test: "It should return an array if the input is zero" 
 Code:
+const amount = 0;
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
-madePizza.addMysteryToppings();
+madePizza.addMysteryToppings(amount);
 Expected Output: []
+
+Test: "The array should contain a random mystery topping if the input is one" 
+Code:
+const amount = 1
+const madePizza = new Pizza(8, "peperoni", "sopor slime");
+madePizza.addMysteryToppings(amount);
+Expected Output: []
+

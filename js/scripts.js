@@ -11,8 +11,8 @@ class Pizza {
     return toppingsCalculated + sizeCalculated;
   }
   addMysteryToppings(num) {
-    const possibilities = ["grave dust"];
-    const toAdd = [];
+    let possibilities = ["grave dust"];
+    const toAdd = possibilities[Math.floor(Math.random() * (possibilities.length))];
     this.toppings.push(...toAdd);
     return toAdd;
   }
