@@ -38,5 +38,20 @@ Copyright (c) 2023 Samantha Callie
 Describe: Pizza constructor()
 
 Test: "It should return a Pizza with a size property and toppings property made of array of any number of inputs"
-Code: const madePizza = new Pizza(["peperoni", "sopor slime"], "small");
-Expected Output: Pizza { size: "small", toppings: ["peperoni", "sopor slime"]  }
+Code: 
+const madePizza = new Pizza(4, "peperoni", "sopor slime");
+Expected Output: Pizza { size: 4, toppings: ["peperoni", "sopor slime"] }
+
+Describe: .cost()
+
+Test: "It shouldn't return anything if the Pizza has no size"
+Code: 
+const madePizza = new Pizza();
+madePizza.cost();
+Expected Output: undefined
+
+Test: "It should return a cost based on the sum of all numbers derived from toppings"
+Code: 
+const madePizza = new Pizza(4, "peperoni", "sopor slime");
+madePizza.cost();
+Expected Output: 3.75
