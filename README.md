@@ -55,3 +55,9 @@ Code:
 const madePizza = new Pizza(4, "peperoni", "sopor slime");
 madePizza.cost();
 Expected Output: 3.75
+
+Test: "It should factor in the size as well"
+Code: 
+const madePizza = new Pizza(8, "peperoni", "sopor slime");
+madePizza.cost();
+Expected Output: 16.75
