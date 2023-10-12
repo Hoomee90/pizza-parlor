@@ -10,4 +10,10 @@ class Pizza {
     const sizeCalculated = 2 + Math.floor(this.size ** 1.5 / 2);
     return toppingsCalculated + sizeCalculated;
   }
+  addMysteryToppings(num) {
+    const possibilities = ["grave dust"];
+    const toAdd = [];
+    this.toppings.push(...toAdd);
+    return toAdd;
+  }
 }

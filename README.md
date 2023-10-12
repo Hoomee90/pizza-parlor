@@ -61,3 +61,11 @@ Code:
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
 madePizza.cost();
 Expected Output: 16.75
+
+Describe: .addMysteryToppings()
+
+Test: "It should return an array" 
+Code:
+const madePizza = new Pizza(8, "peperoni", "sopor slime");
+madePizza.addMysteryToppings();
+Expected Output: []
