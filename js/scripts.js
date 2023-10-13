@@ -1,5 +1,9 @@
 // Business Logic
 
+// Pre-ES6 this would look like
+// function Pizza(size, ...toppings) { etc }
+// Pizza.prototype.cost() { etc }
+
 class Pizza {
   constructor (size, ...toppings) {
     this.size = size;
@@ -18,12 +22,21 @@ class Pizza {
     } else if (newToppings) {
       this.toppings.push(newToppings);
     }
-    
   }
 
   static getMysteryTopping(num) {
-    let possibilities = ["bone meal", "fairy dust", "mind honey", "iron shavings", "catnip", "mystery eggs", "chalk", "spiders", "curdled milk", "ambiguously red soda", "Some sort of aquatic vertebrate", "cuttlefish"];
+    let possibilities = ["bone meal", "fairy dust", "mind honey", "iron shavings", "catnip", "mystery eggs", "chalk", "spiders", "curdled milk", "ambiguously red soda", "unknown aquatic vertebrates", "cuttlefish"];
     const toAdd = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
     return toAdd;
   }
 }
+
+// User Interface Logic
+
+function formSubmissionHandler(event) {
+  event.preventDefault();
+}
+
+window.addEventListener("load", () => {
+  document.querySelector(".pizza-form").addEventListener("submit", formSubmissionHandler)
+})

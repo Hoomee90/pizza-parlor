@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <script src="js/bootstrap.bundle.js"></script>
   <script src="js/scripts.js"></script>
   <title>Pizza Parlor</title>
 </head>
 <body class="container">
   <h1>Pizza's Pizza</h1>
   <p>Customize a delicious pie made of pizza, by pizza, for pizza</p>
+  <form class="pizza-form">
+    <div class="dropdown" id="topping-dropdown">
+      <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside">Select Toppings</button>
+        <div class="dropdown-menu">
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="pep-option" value="pepperoni" type="checkbox">
+            <label class="form-check-label" for="pep-option">Pepperoni</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="basil-option" value="basil" type="checkbox">
+            <label class="form-check-label" for="basil-option">Basil</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="mush-option" value="mushroom" type="checkbox">
+            <label class="form-check-label" for="mush-option">Mushroom</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="spinach-option" value="spinach" type="checkbox">
+            <label class="form-check-label" for="spinach-option">Spinach</label>
+          </div>
+        </div>
+    </div>
+  </form>
 </body>
