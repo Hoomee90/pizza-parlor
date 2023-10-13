@@ -10,10 +10,9 @@ class Pizza {
     const sizeCalculated = 2 + Math.floor(this.size ** 1.5 / 2);
     return toppingsCalculated + sizeCalculated;
   }
-  addMysteryToppings(num) {
+  static getMysteryTopping(num) {
     let possibilities = ["bone meal", "fairy dust"];
     let toAdd = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
-    this.toppings.push(...toAdd);
     return toAdd;
   }
 }

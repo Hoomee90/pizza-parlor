@@ -62,33 +62,33 @@ const madePizza = new Pizza(8, "peperoni", "sopor slime");
 madePizza.cost();
 Expected Output: 16.75
 
-Describe: .addMysteryToppings()
+Describe: .getMysteryTopping()
 
 Test: "It should return an empty array if the input is zero" 
 Code:
 const amount = 0;
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
-madePizza.addMysteryToppings(amount);
+Pizza.getMysteryTopping(amount);
 Expected Output: []
 
 Test: "The array should contain a random mystery topping if the input is one" 
 Code:
 const amount = 1
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
-madePizza.addMysteryToppings(amount);
+Pizza.getMysteryTopping(amount);
 Expected Output: ["bone meal"]
 
 Test: "It should be able to return different toppings on each execution" 
 Code:
 const amount = 1
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
-madePizza.addMysteryToppings(amount);
+Pizza.getMysteryTopping(amount);
 Expected Output: ["fairy dust"]
 
-Test: "It should be able to return two different toppings in the array if the input was 2" 
+Test: "It should be able to return two different toppings in the array if the input is 2" 
 Code:
 const amount = 2
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
-madePizza.addMysteryToppings(amount);
+Pizza.getMysteryTopping(amount);
 Expected Output: ["bone meal", "fairy dust"]
 
