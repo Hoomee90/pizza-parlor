@@ -92,3 +92,28 @@ const madePizza = new Pizza(8, "peperoni", "sopor slime");
 Pizza.getMysteryTopping(amount);
 Expected Output: ["bone meal", "fairy dust"]
 
+Describe: .addToppings()
+
+Test: "It should do nothing with falsey input"
+Code: 
+const madePizza = new Pizza();
+madePizza.addToppings();
+madePizza.toppings;
+Expected Output: []
+
+Test: "It should add non-array input into the object's toppings array"
+Code: 
+const madePizza = new Pizza();
+const topping = "sopor slime"
+madePizza.addToppings(topping);
+madePizza.toppings;
+Expected Output: ["sopor slime"]
+
+Test: "It should add each element of an array into the object's toppings array"
+Code: 
+const madePizza = new Pizza();
+const topping = ["sopor slime", "Pink sugar free soda"]
+madePizza.addToppings(topping);
+madePizza.toppings
+Expected Output: ["sopor slime", "Pink sugar free soda"]
+
