@@ -10,8 +10,36 @@
   <h1>Pizza's Pizza</h1>
   <p>Customize a delicious pie made of pizza, by pizza, for pizza</p>
   <form class="pizza-form">
-    <div class="dropdown" id="topping-dropdown">
-      <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside">Select Toppings</button>
+    <label for="size-button" class="form-label">Select Size</label>
+    <div class="dropend" id="size-dropdown">
+      <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">Size</button>
+        <div class="dropdown-menu">
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
+            <label class="form-check-label" for="itty-bitty-size">Itty Bitty</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="small-size" value="8" type="radio" name="sizes">
+            <label class="form-check-label" for="small-size">Small</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="medium-size" value="12" type="radio" name="sizes">
+            <label class="form-check-label" for="medium-size">Medium</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="large-size" value="16" type="radio" name="sizes">
+            <label class="form-check-label" for="large-size">Large</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="xlarge-size" value="36" type="radio" name="sizes">
+            <label class="form-check-label" for="xlarge-size">Colossal</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <label for="toppings-button" class="form-label">Select Toppings</label>
+    <div class="dropend" id="topping-dropdown">
+      <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">0 Selected</button>
         <div class="dropdown-menu">
           <div class="form-check mx-2">
             <input class="form-check-input" id="pep-option" value="pepperoni" type="checkbox">
@@ -30,6 +58,7 @@
             <label class="form-check-label" for="spinach-option">Spinach</label>
           </div>
         </div>
+      </div>
     </div>
   </form>
 </body>
