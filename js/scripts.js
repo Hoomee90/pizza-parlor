@@ -11,8 +11,8 @@ class Pizza {
     return toppingsCalculated + sizeCalculated;
   }
   static getMysteryTopping(num) {
-    let possibilities = ["bone meal", "fairy dust"];
-    let toAdd = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
+    let possibilities = ["bone meal", "fairy dust", "mind honey", "iron shavings", "catnip", "mystery eggs", "chalk", "spiders", "curdled milk", "ambiguously red soda", "Some sort of aquatic vertebrate", "cuttlefish"];
+    const toAdd = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
     return toAdd;
   }
 }
