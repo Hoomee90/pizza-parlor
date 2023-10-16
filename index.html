@@ -11,7 +11,7 @@
   <p>Customize a delicious pie made of pizza, by pizza, for pizza</p>
   <form class="pizza-form">
     <label for="size-button" class="form-label">Select Size</label>
-    <div class="dropend" id="size-dropdown">
+    <div class="dropend mb-2" id="size-dropdown">
       <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">Size</button>
         <div class="dropdown-menu">
           <div class="form-check mx-2">
@@ -38,7 +38,7 @@
       </div>
     </div>
     <label for="toppings-button" class="form-label">Select Toppings</label>
-    <div class="dropend" id="topping-dropdown">
+    <div class="dropend mb-3" id="topping-dropdown">
       <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">0 Selected</button>
         <div class="dropdown-menu">
           <div class="form-check mx-2">
@@ -57,6 +57,18 @@
             <input class="form-check-input" id="spinach-option" value="spinach" type="checkbox">
             <label class="form-check-label" for="spinach-option">Spinach</label>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#mystery-number">
+          Add mystery Ingredients
+        </button>
+      </div>
+      <div class="col-auto">
+        <div class="collapse collapse-horizontal " id="mystery-number">
+          <input type="number" class="form-control" placeholder="How many?" min="1">
         </div>
       </div>
     </div>

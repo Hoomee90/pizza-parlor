@@ -32,11 +32,3 @@ class Pizza {
 }
 
 // User Interface Logic
-
-function formSubmissionHandler(event) {
-  event.preventDefault();
-}
-
-window.addEventListener("load", () => {
-  document.querySelector(".pizza-form").addEventListener("submit", formSubmissionHandler)
-})
