@@ -39,7 +39,7 @@
     </div>
     <label for="toppings-button" class="form-label">Select Toppings</label>
     <div class="dropend user-select-none mb-2" id="topping-dropdown">
-      <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">0 Selected</button>
+      <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">None Selected</button>
         <div class="dropdown-menu">
           <div class="form-check mx-2">
             <input class="form-check-input" id="pep-option" value="pepperoni" type="checkbox">
@@ -71,11 +71,12 @@
       </div>
     </div>
     <label for="mystery-number" class="form-label">Add Mystery Ingredients?</label>
-    <div class="dropend">
-      <button class="btn btn-primary dropdown-toggle" id="mystery-btton" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">0 Selected</button>
+    <div class="dropend mb-4">
+      <button class="btn btn-primary dropdown-toggle" id="mystery-btton" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">None added</button>
         <div class="dropdown-menu py-0">
           <input type="number" class="form-control border-0" placeholder="How many?" min="1">
         </div>
     </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </body>
