@@ -38,11 +38,18 @@ function handleFormSubmission(event) {
 }
 
 function handleToppingChange(event) {
-  const dropdownButton = document.querySelector("#toppings-button");
-  dropdownButton.innerText = `${document.querySelectorAll("input[type='checkbox']:checked").length} Selected`;
+  const sizeDropButton = document.querySelector("#size-button");
+  const topDropButton = document.querySelector("#toppings-button");
+  if (event.target.type === "checkbox") {
+    topDropButton.innerText = `${document.querySelectorAll("input[type='checkbox']:checked").length} Selected`;
+  } else if (event.target.type === "radio") {
+    sizeDropButton.innerText = `${document.querySelector("input[type='radio']:checked + *").innerText} Selected`;
+    const dropdownButton = new bootstrap.Dropdown(sizeDropButton);
+    console.log(dropdownButton);
+  }
 }
 
 window.addEventListener("load", () => {
   document.querySelector("form#pizza-form").addEventListener("submit", handleFormSubmission);
-  document.querySelectorAll("input[type='checkbox']").forEach(element => element.addEventListener("change", handleToppingChange));
+  document.querySelectorAll("input.form-check-input").forEach(element => element.addEventListener("change", handleToppingChange));
 });
