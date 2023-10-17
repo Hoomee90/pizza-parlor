@@ -58,9 +58,11 @@
         </div>
         <hr class="dropdown-divider mb-2">
         <div class="dropend pe-3">
-          <div class="form-check-inline ms-2 me-0" data-bs-toggle="collapse" href="#text-ingredient" role="button">
-            <input class="form-check-input" id="custom-check" type="checkbox">
-            <label class="form-check-label" for="custom-check">Custom</label>
+          <div class="form-check-inline ms-2 me-0 my-0 " data-bs-toggle="collapse" href="#text-ingredient" role="button">
+            <label class="form-check-label" for="custom-check">
+              <input class="form-check-input" id="custom-check" type="checkbox">
+              Custom
+            </label>
           </div>
           <input type="text" class="form-control align-middle collapse collapse-horizontal mx-2" id="text-ingredient" placeholder="Something Tasty">
         </div>
@@ -68,8 +70,8 @@
     </div>
     <label for="mystery-button" class="form-label">Add Mystery Ingredients?</label>
     <div class="dropend mb-4">
-      <button class="btn btn-primary dropdown-toggle" id="mystery-button" data-bs-toggle="dropdown" data-bs-auto-close="true" type="button">No Mystery Ingredients</button>
-      <div class="dropdown-menu py-0">
+      <button class="btn btn-outline-primary dropdown-toggle-split" id="mystery-button" data-bs-toggle="dropdown" data-bs-auto-close="false" type="button">No Mystery Ingredients</button>
+      <div class="dropdown-menu py-0 z-0">
         <input type="number" class="form-control border-0" id="mystery-amount" placeholder="How many?" min="1">
       </div>
     </div>
