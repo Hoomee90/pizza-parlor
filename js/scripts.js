@@ -32,3 +32,17 @@ class Pizza {
 }
 
 // User Interface Logic
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+}
+
+function handleToppingChange(event) {
+  const dropdownButton = document.querySelector("#toppings-button");
+  dropdownButton.innerText = `${document.querySelectorAll("input[type='checkbox']:checked").length} Selected`;
+}
+
+window.addEventListener("load", () => {
+  document.querySelector("form#pizza-form").addEventListener("submit", handleFormSubmission);
+  document.querySelectorAll("input[type='checkbox']").forEach(element => element.addEventListener("change", handleToppingChange));
+});
