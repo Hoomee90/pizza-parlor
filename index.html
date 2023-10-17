@@ -12,28 +12,27 @@
   <form id="pizza-form">
     <label for="size-button" class="form-label">Select Size</label>
     <div class="dropend user-select-none mb-2" id="size-dropdown">
-      <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">Size</button>
-        <div class="dropdown-menu">
-          <div class="form-check mx-2">
-            <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
-            <label class="form-check-label" for="itty-bitty-size">Itty Bitty</label>
-          </div>
-          <div class="form-check mx-2">
-            <input class="form-check-input" id="small-size" value="8" type="radio" name="sizes">
-            <label class="form-check-label" for="small-size">Small</label>
-          </div>
-          <div class="form-check mx-2">
-            <input class="form-check-input" id="medium-size" value="12" type="radio" name="sizes">
-            <label class="form-check-label" for="medium-size">Medium</label>
-          </div>
-          <div class="form-check mx-2">
-            <input class="form-check-input" id="large-size" value="16" type="radio" name="sizes">
-            <label class="form-check-label" for="large-size">Large</label>
-          </div>
-          <div class="form-check mx-2">
-            <input class="form-check-input" id="xlarge-size" value="36" type="radio" name="sizes">
-            <label class="form-check-label" for="xlarge-size">Colossal</label>
-          </div>
+      <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="inside" type="button">Size</button>
+      <div class="dropdown-menu">
+        <div class="form-check mx-2">
+          <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
+          <label class="form-check-label" for="itty-bitty-size">Itty Bitty</label>
+        </div>
+        <div class="form-check mx-2">
+          <input class="form-check-input" id="small-size" value="8" type="radio" name="sizes">
+          <label class="form-check-label" for="small-size">Small</label>
+        </div>
+        <div class="form-check mx-2">
+          <input class="form-check-input" id="medium-size" value="12" type="radio" name="sizes">
+          <label class="form-check-label" for="medium-size">Medium</label>
+        </div>
+        <div class="form-check mx-2">
+          <input class="form-check-input" id="large-size" value="16" type="radio" name="sizes">
+          <label class="form-check-label" for="large-size">Large</label>
+        </div>
+        <div class="form-check mx-2">
+          <input class="form-check-input" id="xlarge-size" value="36" type="radio" name="sizes">
+          <label class="form-check-label" for="xlarge-size">Colossal</label>
         </div>
       </div>
     </div>
@@ -58,20 +57,18 @@
           <label class="form-check-label" for="spinach-option">Spinach</label>
         </div>
         <hr class="dropdown-divider mb-2">
-        <div class="dropend">
-          <div class="form-check-inline ms-2 me-0">
+        <div class="dropend pe-3">
+          <div class="form-check-inline ms-2 me-0" data-bs-toggle="collapse" href="#text-ingredient" role="button">
             <input class="form-check-input" id="custom-check" type="checkbox">
+            <label class="form-check-label" for="custom-check">Custom</label>
           </div>
-          <button class="btn btn-outline-light text-dark dropdown-toggle p-0" id="custom-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">Custom</button>
-          <div class="dropdown-menu py-0">
-            <input type="text" class="form-control align-middle" id="text-ingredient" placeholder="Something Tasty">
-          </div>
+          <input type="text" class="form-control align-middle collapse collapse-horizontal mx-2" id="text-ingredient" placeholder="Something Tasty">
         </div>
       </div>
     </div>
     <label for="mystery-button" class="form-label">Add Mystery Ingredients?</label>
     <div class="dropend mb-4">
-      <button class="btn btn-primary dropdown-toggle" id="mystery-button" data-bs-toggle="dropdown" data-bs-auto-close="false" type="button">No Mystery Ingredients</button>
+      <button class="btn btn-primary dropdown-toggle" id="mystery-button" data-bs-toggle="dropdown" data-bs-auto-close="true" type="button">No Mystery Ingredients</button>
       <div class="dropdown-menu py-0">
         <input type="number" class="form-control border-0" id="mystery-amount" placeholder="How many?" min="1">
       </div>
