@@ -37,19 +37,30 @@ function handleFormSubmission(event) {
   event.preventDefault();
 }
 
-function handleToppingChange(event) {
+function updateCheckboxButtons(event) {
   const sizeDropButton = document.querySelector("#size-button");
   const topDropButton = document.querySelector("#toppings-button");
   if (event.target.type === "checkbox") {
     topDropButton.innerText = `${document.querySelectorAll("input[type='checkbox']:checked").length} Selected`;
+    if (event.target.id === "custom-check" && !event.target.classList.contains("show")) {
+      document.querySelector("#text-ingredient").value = null;
+    }
   } else if (event.target.type === "radio") {
-    sizeDropButton.innerText = `${document.querySelector("input[type='radio']:checked + *").innerText} Selected`;
-    const dropdownButton = new bootstrap.Dropdown(sizeDropButton);
-    console.log(dropdownButton);
+    sizeDropButton.innerText = `${document.querySelector("input[type='radio']:checked + *").innerText} Size Selected`;
+  }
+}
+
+function handleMysteryInput(event) {
+  if (event.target.classList.contains("show")) {
+    event.target.innerText = "Yes Mystery Ingredients"
+  } else {
+    document.querySelector("#mystery-amount").value = null;
+    event.target.innerText = "No Mystery Ingredients"
   }
 }
 
 window.addEventListener("load", () => {
   document.querySelector("form#pizza-form").addEventListener("submit", handleFormSubmission);
-  document.querySelectorAll("input.form-check-input").forEach(element => element.addEventListener("change", handleToppingChange));
+  document.querySelectorAll("input.form-check-input").forEach(element => element.addEventListener("change", updateCheckboxButtons));
+  document.querySelector("#mystery-button").addEventListener("click", handleMysteryInput);
 });
