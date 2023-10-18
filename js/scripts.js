@@ -35,15 +35,16 @@ class Pizza {
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const sizeDropButton = document.querySelector("#size-button");
-  const topDropButton = document.querySelector("#toppings-button");
   const customTopInput = document.querySelector("#text-ingredient");
+  let toppingArray = Array.from(document.querySelectorAll("input[type='checkbox']:checked"));
+  let toppingValues = toppingArray.map(element => element.id === "custom-check" ? document.querySelector(element.dataset.target).value : element.value);
+  console.log(toppingValues);
 
-  topDropButton.innerText = "0 Selected";
-  sizeDropButton.innerText = "Size";
+  document.querySelector("#toppings-button").innerText = "0 Selected";
+  document.querySelector("#size-button").innerText = "Size";
   customTopInput.classList.remove("show");
 
-  event.target.reset()
+  event.target.reset();
 }
 
 function updateCheckboxButtons(event) {
