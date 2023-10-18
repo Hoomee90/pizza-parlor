@@ -5,9 +5,9 @@
 // Pizza.prototype.cost() { etc }
 
 class Pizza {
-  constructor (size, ...toppings) {
+  constructor (size, toppings) {
     this.size = size;
-    this.toppings = [...toppings];
+    this.toppings = toppings;
   }
 
   cost() {
@@ -35,14 +35,19 @@ class Pizza {
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const customTopInput = document.querySelector("#text-ingredient");
-  let toppingArray = Array.from(document.querySelectorAll("input[type='checkbox']:checked"));
-  let toppingValues = toppingArray.map(element => element.id === "custom-check" ? document.querySelector(element.dataset.target).value : element.value);
-  console.log(toppingValues);
+
+  let toppingArray = Array.from(document.querySelectorAll(`#topping-dropdown input:checked`));
+  const toppingValues = toppingArray.map(element => element.id === "custom-check" ? document.querySelector(element.dataset.target).value : element.value);
+  const sizeValue = document.querySelector("#size-dropdown input:checked").value;
+  const mysteryValue = document.querySelector("#mystery-amount").value;
+  
+  let orderedPizza = new Pizza(sizeValue, toppingValues);
+
+  console.log(orderedPizza);
 
   document.querySelector("#toppings-button").innerText = "0 Selected";
   document.querySelector("#size-button").innerText = "Size";
-  customTopInput.classList.remove("show");
+  document.querySelector("#text-ingredient").classList.remove("show");
 
   event.target.reset();
 }
