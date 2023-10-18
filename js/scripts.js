@@ -35,6 +35,15 @@ class Pizza {
 
 function handleFormSubmission(event) {
   event.preventDefault();
+  const sizeDropButton = document.querySelector("#size-button");
+  const topDropButton = document.querySelector("#toppings-button");
+  const customTopInput = document.querySelector("#text-ingredient");
+
+  topDropButton.innerText = "0 Selected";
+  sizeDropButton.innerText = "Size";
+  customTopInput.classList.remove("show");
+
+  event.target.reset()
 }
 
 function updateCheckboxButtons(event) {
@@ -46,7 +55,7 @@ function updateCheckboxButtons(event) {
       document.querySelector("#text-ingredient").value = null;
     }
   } else if (event.target.type === "radio") {
-    sizeDropButton.innerText = `${document.querySelector("input[type='radio']:checked + *").innerText} Size Selected`;
+    sizeDropButton.innerText = `${document.querySelector("input[type='radio']:checked + *").innerText} Size`;
   }
 }
 
