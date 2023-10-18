@@ -25,13 +25,17 @@ class Pizza {
   }
 
   static getMysteryTopping(num) {
-    let possibilities = ["bone meal", "fairy dust", "mind honey", "iron shavings", "catnip", "mystery eggs", "chalk", "spiders", "curdled milk", "ambiguously red soda", "unknown aquatic vertebrates", "cuttlefish"];
-    const toAdd = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
-    return toAdd;
+    let possibilities = ["bone meal", "fairy dust", "mind honey", "iron shavings", "catnip", "mystery eggs", "chalk", "spiders", "curdled milk", "whimsical red soda", "foreign aquatic vertebrates", "cuttlefish"];
+    const toppings = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
+    return toppings;
   }
 }
 
 // User Interface Logic
+
+function displayPizza(location, pizzaObj, additions = null) {
+  const receipt = document.createElement("div");
+}
 
 function handleFormSubmission(event) {
   event.preventDefault();
@@ -42,8 +46,10 @@ function handleFormSubmission(event) {
   const mysteryValue = document.querySelector("#mystery-amount").value;
   
   let orderedPizza = new Pizza(sizeValue, toppingValues);
-
-  console.log(orderedPizza);
+  const mysteryAdditions = Pizza.getMysteryTopping(mysteryValue);
+  
+  console.log(orderedPizza, mysteryAdditions);
+  displayPizza(event.target, orderedPizza, mysteryAdditions);
 
   document.querySelector("#toppings-button").innerText = "0 Selected";
   document.querySelector("#size-button").innerText = "Size";
@@ -67,10 +73,10 @@ function updateCheckboxButtons(event) {
 
 function handleMysteryInput(event) {
   if (event.target.classList.contains("show")) {
-    event.target.innerText = "Yes Mystery Ingredients"
+    event.target.innerText = "Yes Mystery Ingredients";
   } else {
     document.querySelector("#mystery-amount").value = null;
-    event.target.innerText = "No Mystery Ingredients"
+    event.target.innerText = "No Mystery Ingredients";
   }
 }
 
