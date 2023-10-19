@@ -5,15 +5,16 @@
 // Pizza.prototype.cost() { etc }
 
 class Pizza {
-  constructor (size, toppings) {
+  constructor (size, ...toppings) {
     this.size = size;
     this.toppings = toppings;
   }
 
-  cost() {
+  cost(compiled = true) {
     const toppingsCalculated = this.toppings.reduce((accCost, currentTopping, currentToppingNum) => (accCost + ((currentTopping.match(/[euioa]/gi) || []).length + 1) * (currentToppingNum + 1) / 4), 0);
     const sizeCalculated = 2 + Math.floor(this.size ** 1.5 / 2);
-    return toppingsCalculated + sizeCalculated;
+    const taxCalculated = Math.floor((toppingsCalculated + sizeCalculated) * 0.1025);
+    return compiled ? toppingsCalculated + sizeCalculated + taxCalculated : [toppingsCalculated + sizeCalculated + taxCalculated];
   }
 
   addToppings(newToppings) {

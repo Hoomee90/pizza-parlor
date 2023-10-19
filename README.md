@@ -62,6 +62,12 @@ const madePizza = new Pizza(8, "peperoni", "sopor slime");
 madePizza.cost();
 Expected Output: 16.75
 
+Test: "It should be able to display the constituent prices based on input"
+Code: 
+const madePizza = new Pizza(8, "peperoni", "sopor slime");
+madePizza.cost(false);
+Expected Output: 16.75
+
 Describe: .getMysteryTopping()
 
 Test: "It should return an empty array if the input is zero" 
@@ -112,8 +118,8 @@ Expected Output: ["sopor slime"]
 Test: "It should add each element of an array into the object's toppings array"
 Code: 
 const madePizza = new Pizza();
-const topping = ["sopor slime", "Pink sugar free soda"]
+const topping = ["sopor slime", "pink sugar free soda"]
 madePizza.addToppings(topping);
 madePizza.toppings
-Expected Output: ["sopor slime", "Pink sugar free soda"]
+Expected Output: ["sopor slime", "pink sugar free soda"]
 
