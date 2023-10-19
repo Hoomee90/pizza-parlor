@@ -39,7 +39,7 @@ Describe: Pizza constructor()
 
 Test: "It should return a Pizza with a size property and toppings property made of array of any number of inputs"
 Code: 
-const madePizza = new Pizza(4, "peperoni", "sopor slime");
+const madePizza = new Pizza(4, ["peperoni", "sopor slime"]);
 Expected Output: Pizza { size: 4, toppings: ["peperoni", "sopor slime"] }
 
 Describe: .cost()
@@ -66,7 +66,7 @@ Test: "It should be able to display the constituent prices based on input"
 Code: 
 const madePizza = new Pizza(8, "peperoni", "sopor slime");
 madePizza.cost(false);
-Expected Output: 16.75
+Expected Output: [3.75, 13, 1];
 
 Describe: .getMysteryTopping()
 

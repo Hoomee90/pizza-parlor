@@ -5,26 +5,22 @@
 // Pizza.prototype.cost() { etc }
 
 class Pizza {
-  constructor (size, ...toppings) {
+  constructor (size, toppings) {
     this.size = size;
-    this.toppings = toppings;
+    this.toppings = Array.from(toppings);
   }
-
+  
   cost(compiled = true) {
     const toppingsCalculated = this.toppings.reduce((accCost, currentTopping, currentToppingNum) => (accCost + ((currentTopping.match(/[euioa]/gi) || []).length + 1) * (currentToppingNum + 1) / 4), 0);
     const sizeCalculated = 2 + Math.floor(this.size ** 1.5 / 2);
     const taxCalculated = Math.floor((toppingsCalculated + sizeCalculated) * 0.1025);
-    return compiled ? toppingsCalculated + sizeCalculated + taxCalculated : [toppingsCalculated + sizeCalculated + taxCalculated];
+    return compiled ? toppingsCalculated + sizeCalculated + taxCalculated : [toppingsCalculated, sizeCalculated, taxCalculated];
   }
-
+  
   addToppings(newToppings) {
-    if (Array.isArray(newToppings)) {
-      this.toppings.push(...newToppings);
-    } else if (newToppings) {
-      this.toppings.push(newToppings);
-    }
+    this.toppings = this.toppings.concat(newToppings);
   }
-
+  
   static getMysteryTopping(num) {
     let possibilities = ["bone meal", "fairy dust", "mind honey", "iron shavings", "catnip", "mystery eggs", "chalk", "spiders", "curdled milk", "whimsical red soda", "foreign aquatic vertebrates", "cuttlefish"];
     const toppings = possibilities.sort(() => Math.random() - 0.5).slice(0, num);
@@ -52,7 +48,7 @@ function handleFormSubmission(event) {
   
   let orderedPizza = new Pizza(sizeValue, toppingValues);
   const mysteryAdditions = Pizza.getMysteryTopping(mysteryValue);
-
+  
   displayPizza(event.target, orderedPizza, mysteryAdditions);
 
   document.querySelector("#toppings-button").innerText = "0 Selected";
