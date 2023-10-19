@@ -12,7 +12,7 @@
   <form id="pizza-form">
     <label for="size-button" class="form-label">Select Size</label>
     <div class="dropend user-select-none mb-2" id="size-dropdown">
-      <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="inside" type="button">Size</button>
+      <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="true" type="button">Size</button>
       <div class="dropdown-menu">
         <div class="form-check mx-2">
           <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
@@ -77,4 +77,27 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  <div class="card mt-3" id="1">
+    <h2 class="card-header">Your Order is Being Processed</h2>
+    <div class="card-body font-monospace">
+      <div class="card-header card-text">
+        <ul>
+          <li>1 <span class="size-display">SIZE</span> PIZZA</li>
+          <p class="my-1">STRD TOPS:<span class="float-end topping-price">AMOUNT</span></p>
+          <ul class="topping-list">
+            <li class="stand-topping">Example</li>
+          </ul>
+          <p class="my-1">MYST TOPS:<span class="float-end mystery-price">AMOUNT</span></p>
+          <ul class="mystery-list">
+            <li class="mystery-topping">Example</li>
+          </ul>
+        </ul>
+        <hr>
+        <p class="mb-1">SUBTOTAL<span class="float-end sub-price">AMOUNT</span></p>
+        <p>TAX<span class="float-end tax-price">AMOUNT</span></p>
+        <hr>
+        <p class="card-title">TOTAL<span class="float-end total-price">AMOUNT</span></p>
+      </div>
+    </div>
+  </div>
 </body>
