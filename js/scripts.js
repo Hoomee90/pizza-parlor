@@ -34,7 +34,11 @@ class Pizza {
 // User Interface Logic
 
 function displayPizza(location, pizzaObj, additions = null) {
-  const receipt = document.createElement("div");
+  let pizza = pizzaObj;
+  let standardToppings = pizza.toppings;
+  let mysteryAdditions = additions;
+  pizza.addToppings(mysteryAdditions);
+  console.log(pizza);
 }
 
 function handleFormSubmission(event) {
@@ -47,8 +51,7 @@ function handleFormSubmission(event) {
   
   let orderedPizza = new Pizza(sizeValue, toppingValues);
   const mysteryAdditions = Pizza.getMysteryTopping(mysteryValue);
-  
-  console.log(orderedPizza, mysteryAdditions);
+
   displayPizza(event.target, orderedPizza, mysteryAdditions);
 
   document.querySelector("#toppings-button").innerText = "0 Selected";
