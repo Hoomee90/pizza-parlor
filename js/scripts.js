@@ -32,10 +32,27 @@ class Pizza {
 
 function displayPizza(location, pizzaObj, additions = null) {
   let pizza = pizzaObj;
-  let standardToppings = pizza.toppings;
-  let mysteryAdditions = additions;
+  const standardToppings = pizza.toppings;
+  const mysteryAdditions = additions;
+  const noMysteryPizzaPrices = pizza.cost(false);
   pizza.addToppings(mysteryAdditions);
-  console.log(pizza);
+  const pizzaPrices = pizza.cost(false);
+
+  let receipt = document.querySelector("div.card#receipt-template").cloneNode(true);
+
+  receipt.id = parseInt(receipt.id) + 1;
+  receipt.querySelector(".size-display").innerText = {4:"XSML", 8:"SML", 12:"MED", 16:"LRG", 36:"COL"}[pizza.size];
+  receipt.querySelector(".size-price").innerText = `$${pizzaPrices[1]}.00`;
+  for (let topping in standardToppings) {
+    let li = document.createElement("li");
+    li.classList = "stand-topping";
+    li.innerText = standardToppings[topping];
+    receipt.querySelector(".topping-list").append(li);
+  }
+  receipt.querySelector(".topping-price").innerText = `$${noMysteryPizzaPrices[0]}`
+
+  document.querySelector("div.card:last-of-type").after(receipt);
+  console.log(receipt);
 }
 
 function handleFormSubmission(event) {
