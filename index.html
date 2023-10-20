@@ -81,18 +81,22 @@
   </div>
   <div class="container-fluid" style="width:90%;">
     <div class="row justify-content-evenly">
-      <div class="receipt card my-3 col-md-auto d-none" id="0">
+      <div class="receipt card my-3 col-auto d-none" id="0">
         <h2 class="card-header text-center">Your Order is Being Processed</h2>
         <div class="card-body font-monospace">
           <div class="card-header card-text">
             <ul>
               <li>1 <span class="size-display">SIZE</span> PIZZA<span class="float-end size-price">AMOUNT</span></li>
-              <p class="my-1">STRD TOPS:<span class="float-end topping-price">AMOUNT</span></p>
-              <ul class="topping-list">
-              </ul>
-              <p class="my-1">MYST TOPS:<span class="float-end mystery-price">AMOUNT</span></p>
-              <ul class="mystery-list">
-              </ul>
+              <div class="d-none topping-writeup">
+                <p class="my-1">STRD TOPS:<span class="float-end topping-price">AMOUNT</span></p>
+                <ul class="topping-list">
+                </ul>
+              </div>
+              <div class="d-none mystery-writeup">
+                <p class="my-1">MYST TOPS:<span class="float-end mystery-price">AMOUNT</span></p>
+                <ul class="mystery-list">
+                </ul>
+              </div>
             </ul>
             <hr>
             <p class="mb-1">SUBTOTAL<span class="float-end sub-price">AMOUNT</span></p>

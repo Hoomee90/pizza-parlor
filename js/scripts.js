@@ -49,12 +49,14 @@ function displayPizza(location, pizzaObj, additions = null) {
   let receipt = document.querySelector("div.receipt[id='0']").cloneNode(true);
 
   receipt.id = parseInt(lastReceipt.id) + 1;
+  receipt.classList.remove("d-none")
   receipt.querySelector(".size-display").innerText = {4:"XSML", 8:"SML", 12:"MED", 16:"LRG", 36:"COL"}[pizza.size];
   receipt.querySelector(".size-price").innerText = `$${displayNum(pizzaPrices[1])}`;
   for (let topping in standardToppings) {
     let li = document.createElement("li");
     li.classList = "stand-topping";
     li.innerText = standardToppings[topping];
+    receipt.querySelector(".topping-writeup").classList.remove("d-none");
     receipt.querySelector(".topping-list").append(li);
   }
   receipt.querySelector(".topping-price").innerText = `$${displayNum(noMysteryPizzaPrices[0])}`
@@ -63,6 +65,7 @@ function displayPizza(location, pizzaObj, additions = null) {
     let li = document.createElement("li");
     li.classList = "mystery-topping";
     li.innerText = mysteryAdditions[topping];
+    receipt.querySelector(".mystery-writeup").classList.remove("d-none");
     receipt.querySelector(".mystery-list").append(li);
   }
   receipt.querySelector(".mystery-price").innerText = `$${displayNum(pizzaPrices[0] - noMysteryPizzaPrices[0])}`
