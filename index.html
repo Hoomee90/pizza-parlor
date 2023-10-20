@@ -6,95 +6,101 @@
   <script src="js/scripts.js"></script>
   <title>Pizza Parlor</title>
 </head>
-<body class="container">
-  <h1>Pizza's Pizza</h1>
-  <p>Customize a delicious pie made of pizza, by pizza, for pizza</p>
-  <form id="pizza-form">
-    <label for="size-button" class="form-label">Select Size</label>
-    <div class="dropend user-select-none mb-2" id="size-dropdown">
-      <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="true" type="button">Size</button>
-      <div class="dropdown-menu">
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
-          <label class="form-check-label" for="itty-bitty-size">Itty Bitty</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="small-size" value="8" type="radio" name="sizes">
-          <label class="form-check-label" for="small-size">Small</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="medium-size" value="12" type="radio" name="sizes">
-          <label class="form-check-label" for="medium-size">Medium</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="large-size" value="16" type="radio" name="sizes">
-          <label class="form-check-label" for="large-size">Large</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="xlarge-size" value="36" type="radio" name="sizes">
-          <label class="form-check-label" for="xlarge-size">Colossal</label>
-        </div>
-      </div>
-    </div>
-    <label for="toppings-button" class="form-label">Select Toppings</label>
-    <div class="dropend user-select-none mb-2" id="topping-dropdown">
-      <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">0 Selected</button>
-      <div class="dropdown-menu">
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="pep-option" value="pepperoni" type="checkbox">
-          <label class="form-check-label" for="pep-option">Pepperoni</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="basil-option" value="basil" type="checkbox">
-          <label class="form-check-label" for="basil-option">Basil</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="mush-option" value="mushroom" type="checkbox">
-          <label class="form-check-label" for="mush-option">Mushroom</label>
-        </div>
-        <div class="form-check mx-2">
-          <input class="form-check-input" id="spinach-option" value="spinach" type="checkbox">
-          <label class="form-check-label" for="spinach-option">Spinach</label>
-        </div>
-        <hr class="dropdown-divider mb-2">
-        <div class="dropend pe-3">
-          <div class="form-check-inline ms-2 me-0 my-0 " data-bs-toggle="collapse" href="#text-ingredient" role="button">
-            <label class="form-check-label" for="custom-check">
-              <input class="form-check-input" id="custom-check" type="checkbox" data-target="#text-ingredient">
-              Custom
-            </label>
+<body>
+  <div class="container">
+    <h1>Pizza's Pizza</h1>
+    <p>Customize a delicious pie made of pizza, by pizza, for pizza</p>
+    <form id="pizza-form">
+      <label for="size-button" class="form-label">Select Size</label>
+      <div class="dropend user-select-none mb-2" id="size-dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="true" type="button">Size</button>
+        <div class="dropdown-menu">
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
+            <label class="form-check-label" for="itty-bitty-size">Itty Bitty</label>
           </div>
-          <input type="text" class="form-control align-middle collapse collapse-horizontal mx-2" id="text-ingredient" placeholder="Something Tasty">
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="small-size" value="8" type="radio" name="sizes">
+            <label class="form-check-label" for="small-size">Small</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="medium-size" value="12" type="radio" name="sizes">
+            <label class="form-check-label" for="medium-size">Medium</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="large-size" value="16" type="radio" name="sizes">
+            <label class="form-check-label" for="large-size">Large</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="xlarge-size" value="36" type="radio" name="sizes">
+            <label class="form-check-label" for="xlarge-size">Colossal</label>
+          </div>
         </div>
       </div>
-    </div>
-    <label for="mystery-button" class="form-label">Add Mystery Ingredients?</label>
-    <div class="dropend mb-4">
-      <button class="btn btn-outline-primary dropdown-toggle-split" id="mystery-button" data-bs-toggle="dropdown" data-bs-auto-close="false" type="button">No Mystery Ingredients</button>
-      <div class="dropdown-menu py-0 z-0">
-        <input type="number" class="form-control border-0" id="mystery-amount" placeholder="How many?" min="1">
+      <label for="toppings-button" class="form-label">Select Toppings</label>
+      <div class="dropend user-select-none mb-2" id="topping-dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="toppings-button" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button">0 Selected</button>
+        <div class="dropdown-menu">
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="pep-option" value="pepperoni" type="checkbox">
+            <label class="form-check-label" for="pep-option">Pepperoni</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="basil-option" value="basil" type="checkbox">
+            <label class="form-check-label" for="basil-option">Basil</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="mush-option" value="mushroom" type="checkbox">
+            <label class="form-check-label" for="mush-option">Mushroom</label>
+          </div>
+          <div class="form-check mx-2">
+            <input class="form-check-input" id="spinach-option" value="spinach" type="checkbox">
+            <label class="form-check-label" for="spinach-option">Spinach</label>
+          </div>
+          <hr class="dropdown-divider mb-2">
+          <div class="dropend pe-3">
+            <div class="form-check-inline ms-2 me-0 my-0 " data-bs-toggle="collapse" href="#text-ingredient" role="button">
+              <label class="form-check-label" for="custom-check">
+                <input class="form-check-input" id="custom-check" type="checkbox" data-target="#text-ingredient">
+                Custom
+              </label>
+            </div>
+            <input type="text" class="form-control align-middle collapse collapse-horizontal mx-2" id="text-ingredient" placeholder="Something Tasty">
+          </div>
+        </div>
       </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  <div class="receipt card mt-3" id="0">
-    <h2 class="card-header text-center">Your Order is Being Processed</h2>
-    <div class="card-body font-monospace">
-      <div class="card-header card-text">
-        <ul>
-          <li>1 <span class="size-display">SIZE</span> PIZZA<span class="float-end size-price">AMOUNT</span></li>
-          <p class="my-1">STRD TOPS:<span class="float-end topping-price">AMOUNT</span></p>
-          <ul class="topping-list">
-          </ul>
-          <p class="my-1">MYST TOPS:<span class="float-end mystery-price">AMOUNT</span></p>
-          <ul class="mystery-list">
-          </ul>
-        </ul>
-        <hr>
-        <p class="mb-1">SUBTOTAL<span class="float-end sub-price">AMOUNT</span></p>
-        <p>TAX<span class="float-end tax-price">AMOUNT</span></p>
-        <hr>
-        <p class="card-title">TOTAL<span class="float-end total-price">AMOUNT</span></p>
+      <label for="mystery-button" class="form-label">Add Mystery Ingredients?</label>
+      <div class="dropend mb-4">
+        <button class="btn btn-outline-primary dropdown-toggle-split" id="mystery-button" data-bs-toggle="dropdown" data-bs-auto-close="false" type="button">No Mystery Ingredients</button>
+        <div class="dropdown-menu py-0 z-0">
+          <input type="number" class="form-control border-0" id="mystery-amount" placeholder="How many?" min="1">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="container-fluid" style="width:90%;">
+    <div class="row justify-content-evenly">
+      <div class="receipt card my-3 col-md-auto d-none" id="0">
+        <h2 class="card-header text-center">Your Order is Being Processed</h2>
+        <div class="card-body font-monospace">
+          <div class="card-header card-text">
+            <ul>
+              <li>1 <span class="size-display">SIZE</span> PIZZA<span class="float-end size-price">AMOUNT</span></li>
+              <p class="my-1">STRD TOPS:<span class="float-end topping-price">AMOUNT</span></p>
+              <ul class="topping-list">
+              </ul>
+              <p class="my-1">MYST TOPS:<span class="float-end mystery-price">AMOUNT</span></p>
+              <ul class="mystery-list">
+              </ul>
+            </ul>
+            <hr>
+            <p class="mb-1">SUBTOTAL<span class="float-end sub-price">AMOUNT</span></p>
+            <p>TAX<span class="float-end tax-price">AMOUNT</span></p>
+            <hr>
+            <p class="card-title">TOTAL<span class="float-end total-price">AMOUNT</span></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
