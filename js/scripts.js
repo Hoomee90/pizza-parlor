@@ -6,13 +6,13 @@
 
 class Pizza {
   constructor (size, toppings) {
-    this.size = size;
+    this.size = parseInt(size);
     this.toppings = Array.from(toppings);
   }
   
   cost(compiled = true) {
     const toppingsCalculated = this.toppings.reduce((accCost, currentTopping, currentToppingNum) => (accCost + ((currentTopping.match(/[euioa]/gi) || []).length + 1) * (currentToppingNum + 1) / 4), 0);
-    const sizeCalculated = 2 + Math.floor(this.size ** 1.5 / 2);
+    const sizeCalculated = 2 + this.size;
     const taxCalculated = Math.floor((toppingsCalculated + sizeCalculated) * 0.1025);
     return compiled ? toppingsCalculated + sizeCalculated + taxCalculated : [toppingsCalculated, sizeCalculated, taxCalculated];
   }
@@ -38,17 +38,17 @@ function displayPizza(location, pizzaObj, additions = null) {
     }
     return `${num}.00`;
   }
-  
+
   let pizza = pizzaObj;
   const standardToppings = pizza.toppings;
   const mysteryAdditions = additions;
   const noMysteryPizzaPrices = pizza.cost(false);
   pizza.addToppings(mysteryAdditions);
   const pizzaPrices = pizza.cost(false);
+  const lastReceipt = document.querySelector("div.receipt:last-of-type");
+  let receipt = document.querySelector("div.receipt[id='0']").cloneNode(true);
 
-  let receipt = document.querySelector("div.card#receipt-template").cloneNode(true);
-
-  receipt.id = parseInt(receipt.id) + 1;
+  receipt.id = parseInt(lastReceipt.id) + 1;
   receipt.querySelector(".size-display").innerText = {4:"XSML", 8:"SML", 12:"MED", 16:"LRG", 36:"COL"}[pizza.size];
   receipt.querySelector(".size-price").innerText = `$${displayNum(pizzaPrices[1])}`;
   for (let topping in standardToppings) {
@@ -71,8 +71,7 @@ function displayPizza(location, pizzaObj, additions = null) {
   receipt.querySelector(".tax-price").innerText = `$${displayNum(pizzaPrices[2])}`
   receipt.querySelector(".total-price").innerText = `$${displayNum(pizza.cost())}`
 
-  document.querySelector("div.card:last-of-type").after(receipt);
-  console.log(receipt);
+  lastReceipt.after(receipt);
 }
 
 function handleFormSubmission(event) {
