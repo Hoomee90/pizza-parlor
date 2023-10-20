@@ -31,6 +31,14 @@ class Pizza {
 // User Interface Logic
 
 function displayPizza(location, pizzaObj, additions = null) {
+  const displayNum = (num) => {
+    const splitNum = num.toString().split(".");
+    if (splitNum.length > 1) {
+      return splitNum[1].length < 2 ? `${num}0` : num;
+    }
+    return `${num}.00`;
+  }
+  
   let pizza = pizzaObj;
   const standardToppings = pizza.toppings;
   const mysteryAdditions = additions;
@@ -42,14 +50,14 @@ function displayPizza(location, pizzaObj, additions = null) {
 
   receipt.id = parseInt(receipt.id) + 1;
   receipt.querySelector(".size-display").innerText = {4:"XSML", 8:"SML", 12:"MED", 16:"LRG", 36:"COL"}[pizza.size];
-  receipt.querySelector(".size-price").innerText = `$${pizzaPrices[1]}.00`;
+  receipt.querySelector(".size-price").innerText = `$${displayNum(pizzaPrices[1])}`;
   for (let topping in standardToppings) {
     let li = document.createElement("li");
     li.classList = "stand-topping";
     li.innerText = standardToppings[topping];
     receipt.querySelector(".topping-list").append(li);
   }
-  receipt.querySelector(".topping-price").innerText = `$${noMysteryPizzaPrices[0]}`
+  receipt.querySelector(".topping-price").innerText = `$${displayNum(noMysteryPizzaPrices[0])}`
 
   for (let topping in mysteryAdditions) {
     let li = document.createElement("li");
@@ -57,11 +65,11 @@ function displayPizza(location, pizzaObj, additions = null) {
     li.innerText = mysteryAdditions[topping];
     receipt.querySelector(".mystery-list").append(li);
   }
-  receipt.querySelector(".mystery-price").innerText = `$${pizzaPrices[0] - noMysteryPizzaPrices[0]}`
+  receipt.querySelector(".mystery-price").innerText = `$${displayNum(pizzaPrices[0] - noMysteryPizzaPrices[0])}`
 
-  receipt.querySelector(".sub-price").innerText = `$${pizzaPrices[0] + pizzaPrices[1]}`
-  receipt.querySelector(".tax-price").innerText = `$${pizzaPrices[2]}`
-  receipt.querySelector(".total-price").innerText = `$${pizza.cost()}`
+  receipt.querySelector(".sub-price").innerText = `$${displayNum(pizzaPrices[0] + pizzaPrices[1])}`
+  receipt.querySelector(".tax-price").innerText = `$${displayNum(pizzaPrices[2])}`
+  receipt.querySelector(".total-price").innerText = `$${displayNum(pizza.cost())}`
 
   document.querySelector("div.card:last-of-type").after(receipt);
   console.log(receipt);
