@@ -3,6 +3,7 @@
 // Pre-ES6 this would look like
 // function Pizza(size, ...toppings) { etc }
 // Pizza.prototype.cost() { etc }
+// Pizza.addToppings() { etc }
 
 class Pizza {
   constructor (size, toppings) {
@@ -11,6 +12,7 @@ class Pizza {
   }
   
   cost(compiled = true) {
+    // Price based on size and amount of vowels in toppings, multiplied by their number
     const toppingsCalculated = this.toppings.reduce((accCost, currentTopping, currentToppingNum) => (accCost + ((currentTopping.match(/[euioa]/gi) || []).length + 1) * (currentToppingNum + 1) / 4), 0);
     const sizeCalculated = 2 + this.size;
     const taxCalculated = Math.floor((toppingsCalculated + sizeCalculated) * 0.1025);
@@ -30,13 +32,14 @@ class Pizza {
 
 // User Interface Logic
 
-function displayPizza(location, pizzaObj, additions = null) {
+function displayPizza(pizzaObj, additions = null) {
   const displayNum = (num) => {
+    // Standardize input into $X.00 format 
     const splitNum = num.toString().split(".");
     if (splitNum.length > 1) {
-      return splitNum[1].length < 2 ? `${num}0` : num;
+      return splitNum[1].length < 2 ? `$${num}0` : `$${num}`;
     }
-    return `${num}.00`;
+    return `$${num}.00`;
   }
 
   let pizza = pizzaObj;
@@ -46,12 +49,14 @@ function displayPizza(location, pizzaObj, additions = null) {
   pizza.addToppings(mysteryAdditions);
   const pizzaPrices = pizza.cost(false);
   const lastReceipt = document.querySelector("div.receipt:last-of-type");
+  //Clone and modify an invisible receipt template
   let receipt = document.querySelector("div.receipt[id='0']").cloneNode(true);
 
   receipt.id = parseInt(lastReceipt.id) + 1;
   receipt.classList.remove("d-none")
-  receipt.querySelector(".size-display").innerText = {4:"XSML", 8:"SML", 12:"MED", 16:"LRG", 36:"COL"}[pizza.size];
-  receipt.querySelector(".size-price").innerText = `$${displayNum(pizzaPrices[1])}`;
+  receipt.querySelector(".size-display").innerText = {4:"XSML", 8:"SML", 12:"MED", 13: "???", 16:"LRG", 36:"COL"}[pizza.size];
+  receipt.querySelector(".size-price").innerText = displayNum(pizzaPrices[1]);
+
   for (let topping in standardToppings) {
     let li = document.createElement("li");
     li.classList = "stand-topping";
@@ -59,8 +64,8 @@ function displayPizza(location, pizzaObj, additions = null) {
     receipt.querySelector(".topping-writeup").classList.remove("d-none");
     receipt.querySelector(".topping-list").append(li);
   }
-  receipt.querySelector(".topping-price").innerText = `$${displayNum(noMysteryPizzaPrices[0])}`
-
+  receipt.querySelector(".topping-price").innerText = displayNum(noMysteryPizzaPrices[0]);
+  
   for (let topping in mysteryAdditions) {
     let li = document.createElement("li");
     li.classList = "mystery-topping";
@@ -68,11 +73,11 @@ function displayPizza(location, pizzaObj, additions = null) {
     receipt.querySelector(".mystery-writeup").classList.remove("d-none");
     receipt.querySelector(".mystery-list").append(li);
   }
-  receipt.querySelector(".mystery-price").innerText = `$${displayNum(pizzaPrices[0] - noMysteryPizzaPrices[0])}`
+  receipt.querySelector(".mystery-price").innerText = displayNum(pizzaPrices[0] - noMysteryPizzaPrices[0]);
 
-  receipt.querySelector(".sub-price").innerText = `$${displayNum(pizzaPrices[0] + pizzaPrices[1])}`
-  receipt.querySelector(".tax-price").innerText = `$${displayNum(pizzaPrices[2])}`
-  receipt.querySelector(".total-price").innerText = `$${displayNum(pizza.cost())}`
+  receipt.querySelector(".sub-price").innerText = displayNum(pizzaPrices[0] + pizzaPrices[1]);
+  receipt.querySelector(".tax-price").innerText = displayNum(pizzaPrices[2]);
+  receipt.querySelector(".total-price").innerText = displayNum(pizza.cost());
 
   lastReceipt.after(receipt);
 }
@@ -82,13 +87,13 @@ function handleFormSubmission(event) {
 
   let toppingArray = Array.from(document.querySelectorAll(`#topping-dropdown input:checked`));
   const toppingValues = toppingArray.map(element => element.id === "custom-check" ? document.querySelector(element.dataset.target).value : element.value);
-  const sizeValue = document.querySelector("#size-dropdown input:checked").value;
+  const sizeValue = document.querySelector("#size-dropdown input:checked") ? document.querySelector("#size-dropdown input:checked").value : "13";
   const mysteryValue = document.querySelector("#mystery-amount").value;
   
   let orderedPizza = new Pizza(sizeValue, toppingValues);
   const mysteryAdditions = Pizza.getMysteryTopping(mysteryValue);
   
-  displayPizza(event.target, orderedPizza, mysteryAdditions);
+  displayPizza(orderedPizza, mysteryAdditions);
 
   document.querySelector("#toppings-button").innerText = "0 Selected";
   document.querySelector("#size-button").innerText = "Size";
