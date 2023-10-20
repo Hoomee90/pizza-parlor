@@ -1,10 +1,10 @@
-# 
+# Pizza's Pizza
 
 #### By **Samantha Callie**
 
-####
+#### Customize your own pizza to (not) order
 
-### [See it here](https://hoomee90.github.io/pig-dice/)
+### [See it here](https://hoomee90.github.io/pizza-parlor/)
 
 ## Technologies Used
 
@@ -15,7 +15,7 @@
 
 ## Description
 
-
+This browser page is a form which allows users to order a custom pizza via form. They can choose size, toppings (including custom!) and whether to add something mysterious as well. The site will then display a receipt of the pizza, including its price.
 
 ## Setup/Installation Requirements
 
@@ -25,7 +25,7 @@
 
 ## Known Bugs
 
-* 
+* There are no known bugs on the site
 
 ## License
 
