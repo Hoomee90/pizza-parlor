@@ -15,24 +15,24 @@
       <button class="btn btn-primary dropdown-toggle" id="size-button" data-bs-toggle="dropdown" data-bs-auto-close="true" type="button">Size</button>
       <div class="dropdown-menu">
         <div class="form-check mx-2">
-          <input class="form-check-input" id="ITYBITY" value="4" type="radio" name="sizes">
-          <label class="form-check-label" for="ITYBITY">Itty Bitty</label>
+          <input class="form-check-input" id="itty-bitty-size" value="4" type="radio" name="sizes">
+          <label class="form-check-label" for="itty-bitty-size">Itty Bitty</label>
         </div>
         <div class="form-check mx-2">
-          <input class="form-check-input" id="SML" value="8" type="radio" name="sizes">
-          <label class="form-check-label" for="SML">Small</label>
+          <input class="form-check-input" id="small-size" value="8" type="radio" name="sizes">
+          <label class="form-check-label" for="small-size">Small</label>
         </div>
         <div class="form-check mx-2">
-          <input class="form-check-input" id="MED" value="12" type="radio" name="sizes">
-          <label class="form-check-label" for="MED">Medium</label>
+          <input class="form-check-input" id="medium-size" value="12" type="radio" name="sizes">
+          <label class="form-check-label" for="medium-size">Medium</label>
         </div>
         <div class="form-check mx-2">
-          <input class="form-check-input" id="LRG" value="16" type="radio" name="sizes">
-          <label class="form-check-label" for="LRG">Large</label>
+          <input class="form-check-input" id="large-size" value="16" type="radio" name="sizes">
+          <label class="form-check-label" for="large-size">Large</label>
         </div>
         <div class="form-check mx-2">
-          <input class="form-check-input" id="COL" value="36" type="radio" name="sizes">
-          <label class="form-check-label" for="COL">Colossal</label>
+          <input class="form-check-input" id="xlarge-size" value="36" type="radio" name="sizes">
+          <label class="form-check-label" for="xlarge-size">Colossal</label>
         </div>
       </div>
     </div>
@@ -77,19 +77,17 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <div class="card mt-3" id="1">
+  <div class="card mt-3" id="receipt-template">
     <h2 class="card-header text-center">Your Order is Being Processed</h2>
     <div class="card-body font-monospace">
       <div class="card-header card-text">
         <ul>
           <li>1 <span class="size-display">SIZE</span> PIZZA<span class="float-end size-price">AMOUNT</span></li>
-          <p class="my-1">STRD TOPS:</p>
+          <p class="my-1">STRD TOPS:<span class="float-end topping-price">AMOUNT</span></p>
           <ul class="topping-list">
-            <li class="stand-topping">Example<span class="float-end topping-price">AMOUNT</span></li>
           </ul>
           <p class="my-1">MYST TOPS:<span class="float-end mystery-price">AMOUNT</span></p>
           <ul class="mystery-list">
-            <li class="mystery-topping">Example</li>
           </ul>
         </ul>
         <hr>

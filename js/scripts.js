@@ -51,6 +51,18 @@ function displayPizza(location, pizzaObj, additions = null) {
   }
   receipt.querySelector(".topping-price").innerText = `$${noMysteryPizzaPrices[0]}`
 
+  for (let topping in mysteryAdditions) {
+    let li = document.createElement("li");
+    li.classList = "mystery-topping";
+    li.innerText = mysteryAdditions[topping];
+    receipt.querySelector(".mystery-list").append(li);
+  }
+  receipt.querySelector(".mystery-price").innerText = `$${pizzaPrices[0] - noMysteryPizzaPrices[0]}`
+
+  receipt.querySelector(".sub-price").innerText = `$${pizzaPrices[0] + pizzaPrices[1]}`
+  receipt.querySelector(".tax-price").innerText = `$${pizzaPrices[2]}`
+  receipt.querySelector(".total-price").innerText = `$${pizza.cost()}`
+
   document.querySelector("div.card:last-of-type").after(receipt);
   console.log(receipt);
 }
